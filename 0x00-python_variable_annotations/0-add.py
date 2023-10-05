@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""
+This module provides a function to add two floating-point numbers.
+"""
+
 def add(a: float, b: float) -> float:
     """
     Add two floating-point numbers and return the result.
@@ -11,3 +15,6 @@ def add(a: float, b: float) -> float:
         float: The sum of a and b.
     """
     return a + b
+
+if __name__ == "__main__":
+    print(add(1.11, 2.22) == 1.11 + 2.22)
