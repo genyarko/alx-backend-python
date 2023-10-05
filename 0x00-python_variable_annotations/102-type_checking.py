@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+"""
+This module provides a function to safely get a value from a dictionary.
+"""
+
 from typing import Tuple, List, Union
 
 def zoom_array(lst: Tuple[Union[int, float], ...], factor: int = 2) -> Tuple[Union[int, float], ...]:
