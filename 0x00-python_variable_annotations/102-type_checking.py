@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
-"""
-This module provides a function to safely get a value from a dictionary.
-"""
+'''Task 12's module.
+'''
+from typing import List, Tuple
 
-from typing import Tuple, List, Union
 
-def zoom_array(lst: Tuple[Union[int, float], ...], factor: int = 2) -> Tuple[Union[int, float], ...]:
-    zoomed_in: List[Union[int, float]] = [
+def zoom_array(lst: Tuple, factor: int = 2) -> List:
+    '''Creates multiple copies of items in a tuple.
+    '''
+    zoomed_in: List = [
         item for item in lst
-        for i in range(factor)
+        for i in range(int(factor))
     ]
-    return tuple(zoomed_in)
+    return zoomed_in
 
-array: Tuple[Union[int, float], ...] = (12, 72, 91)
+
+array = (12, 72, 91)
 
 zoom_2x = zoom_array(array)
 
-zoom_3x = zoom_array(array, 3.0)
+zoom_3x = zoom_array(array, 3)
