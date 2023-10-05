@@ -1,12 +1,13 @@
+#!/usr/bin/env python3
 def add(a: float, b: float) -> float:
-  """Returns the sum of two floats.
+    """
+    Add two floating-point numbers and return the result.
 
-  Args:
-    a: A float.
-    b: A float.
+    Args:
+        a (float): The first floating-point number.
+        b (float): The second floating-point number.
 
-  Returns:
-    The sum of a and b.
-  """
-
-  return a + b
+    Returns:
+        float: The sum of a and b.
+    """
+    return a + b
