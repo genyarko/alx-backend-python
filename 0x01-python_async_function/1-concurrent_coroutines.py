@@ -29,4 +29,13 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
 
     await asyncio.gather(*[_wait_random_wrapper() for _ in range(n)])
 
-    return sorted(delays)
+    return delays
+
+if __name__ == "__main__":
+    import asyncio
+    from random import seed
+
+    seed(1)
+    print(asyncio.run(wait_n(5, 5)))
+    print(asyncio.run(wait_n(10, 7)))
+    print(asyncio.run(wait_n(10, 0)))
