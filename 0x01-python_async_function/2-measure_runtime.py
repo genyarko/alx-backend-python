@@ -6,8 +6,10 @@ Task 2's module.
 import time
 from typing import List
 
-from 0-basic_async_syntax import wait_random
-from 1-concurrent_coroutines import wait_n
+wait_random = __import__('0-basic_async_syntax').wait_random
+wait_n = __import__('1-concurrent_coroutines').wait_n
+
+
 
 def measure_time(n: int, max_delay: int) -> float:
     """
