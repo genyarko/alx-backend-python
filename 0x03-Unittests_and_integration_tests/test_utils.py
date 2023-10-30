@@ -5,7 +5,9 @@ from parameterized import parameterized
 from utils import access_nested_map  # Import your access_nested_map function
 
 class TestAccessNestedMap(unittest.TestCase):
-    """Unit tests for the access_nested_map function."""
+    """
+    Unit tests for the access_nested_map function.
+    """
 
     @parameterized.expand([
         ({"a": 1}, ("a",), 1),                  # Test case 1
@@ -13,7 +15,9 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": {"b": 2}}, ("a", "b"), 2),      # Test case 3
     ])
     def test_access_nested_map(self, nested_map, path, expected_result):
-        """Test the access_nested_map function for various inputs."""
+        """
+        Test the access_nested_map function for various inputs.
+        """
         result = access_nested_map(nested_map, path)
         self.assertEqual(result, expected_result)
 
@@ -22,7 +26,9 @@ class TestAccessNestedMap(unittest.TestCase):
         ({"a": 1}, ("a", "b"), "Key 'b' not found in the nested_map."),  # Test case 5
     ])
     def test_access_nested_map_exception(self, nested_map, path, expected_exception_message):
-        """Test that the access_nested_map function raises KeyError as expected."""
+        """
+        Test that the access_nested_map function raises KeyError as expected.
+        """
         with self.assertRaises(KeyError) as context:
             access_nested_map(nested_map, path)
         
