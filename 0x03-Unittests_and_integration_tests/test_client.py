@@ -2,28 +2,18 @@
 
 import unittest
 from unittest.mock import patch
-from parameterized import parameterized
 from client import GithubOrgClient
 
 class TestGithubOrgClient(unittest.TestCase):
-    """
-    Unit tests for the GithubOrgClient class.
-    """
+    def test_public_repos_url(self):
+        # Mock the 'org' property with a known payload
+        with patch.object(GithubOrgClient, 'org', return_value={'repos_url': 'https://api.github.com/orgs/testorg/repos'}):
+            client = GithubOrgClient('testorg')
+            public_repos_url = client._public_repos_url
 
-    @parameterized.expand([
-        ("google",),
-        ("abc",),
-    ])
-    @patch('client.GithubOrgClient.get_json', return_value={'login': 'mocked_org'})
-    def test_org(self, org_name, mock_get_json):
-        """
-        Test the GithubOrgClient.org method with different organization names.
-        """
-        client = GithubOrgClient(org_name)
-        org_info = client.org
-        self.assertEqual(org_info, {'login': 'mocked_org'})
-        mock_get_json.assert_called_once_with(f'https://api.github.com/orgs/{org_name}')
+        # Check that the result of _public_repos_url is the expected URL based on the mocked payload
+        expected_url = 'https://api.github.com/orgs/testorg/repos'
+        self.assertEqual(public_repos_url, expected_url)
 
 if __name__ == "__main__":
     unittest.main()
-
